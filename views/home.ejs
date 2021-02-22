@@ -5,7 +5,7 @@
 
 <% newContent.forEach(function(e) { %>
   <h3><%= e.Title %></h3>
-  <p><%= e.Content %></p>
+  <p><%= e.Content.substring(0, 100) + "..." %></p>
 <% }); %>
 
 <%- include("partials/footer"); -%>
