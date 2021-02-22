@@ -25,6 +25,18 @@ app.get('/contact', function(req, res) {
   res.render('contact', {contactContent: contactContent});
 });
 
+app.get('/compose', function(req, res) {
+  res.render('compose');
+});
+
+app.post('/compose', function(req, res) {
+  const post = {
+    Title: req.body.composeTitle,
+    Content: req.body.composeContent
+  };
+  console.log(post);
+});
+
 app.listen(3000, function() {
   console.log("Listening on port 3000");
 });
