@@ -3,4 +3,9 @@
 <h1>Home</h1>
 <p><%= homeContent %></p>
 
+<% newContent.forEach(function(e) { %>
+  <h3><%= e.Title %></h3>
+  <p><%= e.Content %></p>
+<% }); %>
+
 <%- include("partials/footer"); -%>
