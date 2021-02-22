@@ -5,7 +5,10 @@
 
 <% newContent.forEach(function(e) { %>
   <h3><%= e.Title %></h3>
-  <p><%= e.Content.substring(0, 100) + "..." %></p>
+  <p>
+    <%= e.Content.substring(0, 100) + "..." %>
+    <a href="/posts/<%= e.Title %>">Read More</a>
+  </p>
 <% }); %>
 
 <%- include("partials/footer"); -%>
