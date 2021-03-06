@@ -1,7 +1,7 @@
 # Blog-Website
 Blog Website with ejs
 
-Routes:
+Routes: <br />
 "/"           Root <br />
 "/compose"    Compose New Post <br />
 "/delete"     Delete Post <br />
