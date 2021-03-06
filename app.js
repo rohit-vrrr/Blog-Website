@@ -56,10 +56,30 @@ app.post('/compose', function(req, res) {
 });
 
 app.get('/posts/:postId', function(req, res) {
-  const requestedPostId = _.kebabCase(req.params.postId);
+  const requestedPostId = req.params.postId;
 
   Post.findOne({_id: requestedPostId}, function(err, post) {
-    res.render('post', {storedTitle: post.title, storedContent: post.content});
+    if(!err) {
+      res.render('post', {storedTitle: post.title, storedContent: post.content});
+    }
+  });
+});
+
+app.get('/delete', function(req, res) {
+  res.render('delete');
+});
+
+app.post('/delete', function(req, res) {
+  const removePost = req.body.deletePost;
+
+  Post.deleteOne({title: removePost}, function(err, obj) {
+    if(err) {
+      console.log(err);
+    }
+    else {
+      console.log(removePost + " Deleted Successfully");
+      res.redirect('/');
+    }
   });
 });
 
